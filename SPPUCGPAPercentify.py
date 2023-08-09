@@ -258,7 +258,7 @@ if selected == "Home":
 
     st.markdown(
         "<p class='subheader'>Let's ensure that your academic journey is complemented by a user-friendly and efficient tool. Happy converting!</p>", unsafe_allow_html=True)
-    st.snow()
+    # st.snow()
 
     # CGPA to Percentage section
 elif selected == "CGPA to Percentage":
@@ -381,7 +381,7 @@ elif selected == "About":
         "For more information on the SPPU CGPA to percentage conversion, you can refer to the "
         "[official SPPU document](https://campus.unipune.ac.in/CCEP/CBCS/CBCS_Passing_Standards.aspx)."
     )
-    st.snow()
+    # st.snow()
 
 # Add page footer
 st.markdown("---")
