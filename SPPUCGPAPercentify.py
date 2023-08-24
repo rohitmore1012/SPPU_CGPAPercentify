@@ -2,8 +2,9 @@ import streamlit as st
 import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu  # select_options library
 
-
 # Function to determine grade based on CGPA
+
+
 def determine_grade(cgpa):
     if 9.00 <= cgpa <= 10.00:
         return "O"
@@ -187,41 +188,40 @@ def calculate_cgpa_from_sgpa_and_credits(semester_cgpa_sgpa_list):
 st.title("SPPU CGPAPercentify")
 st.subheader("2019 Pattern Grade-to-Percentage Conversion")
 
+# Define default text color
+text_color = "#000000"  # Default text color is black
 
-# Add CSS for styling
+# Apply CSS styles using Streamlit markdown
 st.markdown(
-    """
+    f"""
     <style>
-    body {
-        background-color: white; /* Set background color to white */
-        color: black; /* Set text color to black */
+    body {{
+        color: {text_color};
         font-family: 'Arial', sans-serif;
-    }
-    .main {
+    }}
+    .stApp {{
         padding: 2rem;
-        background-color: #ffffff;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-    .header {
+    }}
+    .header {{
         color: #0055a6;
         margin-bottom: 1rem;
-    }
-    .subheader {
+    }}
+    .subheader {{
         font-size: 20px;
         color: #555555;
         margin-bottom: 1rem;
-    }
-    .section-header {
+    }}
+    .section-header {{
         color: #0055a6;
         font-size: 24px;
         margin-bottom: 1.5rem;
-    }
+    }}
     </style>
     """,
     unsafe_allow_html=True,
 )
-
 
 # Sidebar section starts here
 
@@ -258,7 +258,7 @@ if selected == "Home":
 
     st.markdown(
         "<p class='subheader'>Let's ensure that your academic journey is complemented by a user-friendly and efficient tool. Happy converting!</p>", unsafe_allow_html=True)
-    # st.snow()
+    st.snow()
 
     # CGPA to Percentage section
 elif selected == "CGPA to Percentage":
@@ -368,8 +368,9 @@ elif selected == "About":
         "SPPU CGPAPercentify is a simple web app designed for SPPU students to quickly "
         "convert their CGPA to percentage. It provides an easy way to calculate percentage "
         "equivalents based on the SPPU CGPA grading system.\n\n"
-        "Web App Owner: Professor Sergio\n"
-        "Connect with Professor Sergio on Telegram: [Professor Sergio](https://t.me/professor_sergio_1)\n\n"
+        "Web App Developer: Rohit More\n\n"
+        "Connect with me on LinkedIn: [Rohit More](https://www.linkedin.com/in/rohit-more1012/)\n\n"
+        "View the source code on GitHub: [SPPU CGPAPercentify](https://github.com/rohitmore1012/SPPU_CGPAPercentify)\n\n"
         "Join our Telegram Group for updates and discussions: [Telegram Group](https://t.me/SPPU_COMPUTER_ER)\n\n"
 
 
@@ -381,7 +382,7 @@ elif selected == "About":
         "For more information on the SPPU CGPA to percentage conversion, you can refer to the "
         "[official SPPU document](https://campus.unipune.ac.in/CCEP/CBCS/CBCS_Passing_Standards.aspx)."
     )
-    # st.snow()
+    st.snow()
 
 # Add page footer
 st.markdown("---")
