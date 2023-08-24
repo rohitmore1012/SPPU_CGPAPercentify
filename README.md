@@ -25,7 +25,7 @@ Welcome to SPPU-CGPAPercentify, a Streamlit web application designed to simplify
 
 ## Explore the App
 
-Visit the live app hosted on GitHub Pages: [SPPU-CGPAPercentify](https://rohitmore1012.github.io/SPPU-CGPAPercentify/)
+Visit the live app hosted on GitHub Pages: [SPPU-CGPAPercentify](https://sppucgpapercentify.streamlit.app/)
 
 
 ## Join the Discussion
