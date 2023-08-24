@@ -4,10 +4,10 @@ from streamlit_option_menu import option_menu  # select_options library
 
 
 # Set page configuration to expand the sidebar by default
-st.set_page_config(initial_sidebar_state="expanded")
+# st.set_page_config(initial_sidebar_state="expanded")
 
 # Initialize a state variable to control sidebar state
-collapse_sidebar = False
+# collapse_sidebar = False
 
 
 # Function to determine grade based on CGPA
@@ -232,15 +232,15 @@ with st.sidebar:
     selected = option_menu("Navigation", ["Home", "CGPA to Percentage", "SGPA to Percentage",
                            "Grade Prediction", "Semester-wise CGPA and Percentage Calculation", "About"])
 
-    # After handling the option selection, change the state variable to collapse the sidebar
-    collapse_sidebar = True
+#     # After handling the option selection, change the state variable to collapse the sidebar
+#     collapse_sidebar = True
 
-# If the state variable is True, collapse the sidebar
-if collapse_sidebar:
-    st.markdown(
-        '<style>div.sidebar-closed { display: none }</style>', unsafe_allow_html=True)
-    st.sidebar.markdown(
-        '<style>div[aria-expanded="false"] { margin-left: -40px; }</style>', unsafe_allow_html=True)
+# # If the state variable is True, collapse the sidebar
+# if collapse_sidebar:
+#     st.markdown(
+#         '<style>div.sidebar-closed { display: none }</style>', unsafe_allow_html=True)
+#     st.sidebar.markdown(
+#         '<style>div[aria-expanded="false"] { margin-left: -40px; }</style>', unsafe_allow_html=True)
 
 
 if selected == "Home":
