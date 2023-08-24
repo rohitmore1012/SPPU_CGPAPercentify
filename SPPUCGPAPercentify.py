@@ -354,7 +354,7 @@ elif selected == "Semester-wise CGPA and Percentage Calculation":
         semester_cgpa_sgpa_list.append(
             (cgpa_sgpa, credits))  # Pack values into a tuple
 
-    if st.button("Calculate Percentages"):
+    if st.button("Calculate"):
         cumulative_percentages = calculate_cumulative_percentages(
             semester_cgpa_sgpa_list)
         cumulative_cgpa = calculate_cgpa_from_sgpa_and_credits(
@@ -364,6 +364,17 @@ elif selected == "Semester-wise CGPA and Percentage Calculation":
             st.write(f"**Percentage: {cumulative_percentages:.2f}%**")
             st.write(f"**CGPA: {cumulative_cgpa:.2f}**")
             st.balloons()
+
+            # Display calculation breakdown
+            st.write("**Calculation Breakdown:**")
+            for i, (semester_sgpa, credits) in enumerate(semester_cgpa_sgpa_list, start=1):
+                semester_grade = determine_grade_sgpa(semester_sgpa)
+                semester_percentage, _ = calculate_percentage_and_formula_sgpa(
+                    semester_grade, semester_sgpa)
+
+                st.write(
+                    f"**Semester {i} - SGPA: {semester_sgpa:.2f} | Grade: {semester_grade} | Percentage: {semester_percentage:.2f}%**")
+
         else:
             st.write("Invalid input or calculation not available.")
 
