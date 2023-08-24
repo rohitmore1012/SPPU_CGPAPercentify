@@ -191,37 +191,27 @@ st.subheader("2019 Pattern Grade-to-Percentage Conversion")
 # Define default text color
 text_color = "#000000"  # Default text color is black
 
-# Apply CSS styles using Streamlit markdown
-st.markdown(
-    f"""
+# Set page title and subtitle with CSS styles
+st.markdown("""
     <style>
-    body {{
-        color: {text_color};
-        font-family: 'Arial', sans-serif;
-    }}
-    .stApp {{
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }}
-    .header {{
+    .header {
         color: #0055a6;
-        margin-bottom: 1rem;
-    }}
-    .subheader {{
-        font-size: 20px;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .subheader {
+        font-size: 18px;
         color: #555555;
-        margin-bottom: 1rem;
-    }}
-    .section-header {{
+        margin-bottom: 15px;
+    }
+    .section-header {
         color: #0055a6;
         font-size: 24px;
-        margin-bottom: 1.5rem;
-    }}
+        margin-bottom: 15px;
+    }
     </style>
-    """,
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
+
 
 # Sidebar section starts here
 
@@ -243,14 +233,14 @@ if selected == "Home":
 
     st.write("Here's how you can use SPPU CGPAPercentify:")
     st.write(
-        "1. Explore the 'CGPA to Percentage' section if you have your CGPA ready.")
+        "**1. Explore the 'CGPA to Percentage' section if you have your CGPA ready.**")
     st.write(
-        "2. Utilize the 'SGPA to Percentage' section for SGPA-to-percentage conversions.")
+        "**2. Utilize the 'SGPA to Percentage' section for SGPA-to-percentage conversions.**")
     st.write(
-        "3. Predict your future grades and percentages with the 'Grade Prediction' feature.")
-    st.write("4. Calculate your cumulative percentage and CGPA across multiple semesters in the 'Semester-wise CGPA and Percentage Calculation' section.")
+        "**3. Predict your future grades and percentages with the 'Grade Prediction' feature.**")
+    st.write("**4. Calculate your cumulative percentage and CGPA across multiple semesters in the 'Semester-wise CGPA and Percentage Calculation' section.**")
     st.write(
-        "5. Learn more about SPPU CGPAPercentify and its functionalities in the 'About' section.")
+        "**5. Learn more about SPPU CGPAPercentify and its functionalities in the 'About' section.**")
 
     st.write("Whether you're a student looking to streamline your academic progress or an individual seeking accurate percentage conversions, SPPU CGPAPercentify is here to simplify your journey.")
 
@@ -264,6 +254,10 @@ if selected == "Home":
 elif selected == "CGPA to Percentage":
     st.markdown(
         "<h2 class='section-header'>Convert CGPA to Percentage</h2>", unsafe_allow_html=True)
+    # Explanation for CGPA to Percentage section
+    st.write("Welcome to the 'CGPA to Percentage' section!\n\n"
+             "Here, you can easily convert your CGPA to its equivalent percentage based on SPPU's grading system.\n\n"
+             "Simply enter your CGPA, and the app will determine the corresponding grade, percentage, and formula used for the conversion.")
     cgpa = st.number_input(
         "Enter CGPA:", min_value=0.0, max_value=10.0, step=0.01)
 
@@ -271,21 +265,27 @@ elif selected == "CGPA to Percentage":
     if grade is not None:
         percentage, formula = calculate_percentage_and_formula(grade, cgpa)
         st.write(
-            f"Percentage equivalent of CGPA {cgpa:.2f} with grade {grade} is {percentage:.2f}%.")
+            f"Percentage equivalent of **CGPA {cgpa:.2f}** with **grade {grade}** is **{percentage:.2f}%**.")
         st.balloons()
 
         st.write(
-            f"For CGPA {cgpa:.2f}, which corresponds to an {grade} grade, the formula used in the SPPU CGPA Percentage system for {grade} grade is {formula}.")
+            f"For **CGPA {cgpa:.2f}**, which corresponds to an **{grade} grade**, the formula used in the SPPU CGPA Percentage system for **{grade} grade is {formula}**.")
         st.write(
-            f"i.e. {formula.replace('CGPA', str(cgpa))} = {percentage:.2f}%")
+            f"Accordingly, **{formula.replace('CGPA', str(cgpa))} = {percentage:.2f}%**")
+        # f"i.e. **{formula.replace('CGPA', str(cgpa))} = {percentage:.2f}%**")
 
     else:
-        st.write("Invalid CGPA entered.")
+        st.write("Enter a valid CGPA between 4.00 and 10.00.")
 
         # SGPA to Percentage section
+
 elif selected == "SGPA to Percentage":
     st.markdown(
         "<h2 class='section-header'>Convert SGPA to Percentage</h2>", unsafe_allow_html=True)
+    # Explanation for SGPA to Percentage section
+    st.write("Explore the 'SGPA to Percentage' section to convert your SGPA into its corresponding percentage.\n\n"
+             "Similar to the CGPA conversion, enter your SGPA, and the app will calculate the grade, percentage, and formula for the conversion.")
+
     sgpa = st.number_input(
         "Enter SGPA:", min_value=0.0, max_value=10.0, step=0.01)
 
@@ -294,16 +294,16 @@ elif selected == "SGPA to Percentage":
         percentage_sgpa, formula_sgpa = calculate_percentage_and_formula_sgpa(
             grade_sgpa, sgpa)
         st.write(
-            f"Percentage equivalent of SGPA {sgpa:.2f} with grade {grade_sgpa} is {percentage_sgpa:.2f}%.")
+            f"Percentage equivalent of **SGPA {sgpa:.2f}** with **grade {grade_sgpa}** is **{percentage_sgpa:.2f}%**.")
         st.balloons()
 
         st.write(
-            f"For SGPA {sgpa:.2f}, which corresponds to an {grade_sgpa} grade, the formula used in the SPPU SGPA Percentage system for {grade_sgpa} grade is {formula_sgpa}.")
+            f"For SGPA {sgpa:.2f}, which corresponds to an **{grade_sgpa} grade**, the formula used in the SPPU SGPA Percentage system for **{grade_sgpa} grade** is **{formula_sgpa}**.")
         st.write(
-            f"i.e. {formula_sgpa.replace('SGPA', str(sgpa))} = {percentage_sgpa:.2f}%")
+            f"Accordingly, **{formula_sgpa.replace('SGPA', str(sgpa))} = {percentage_sgpa:.2f}%**")
 
     else:
-        st.write("Invalid SGPA entered.")
+        st.write("Enter a valid CGPA between 4.00 and 10.00.")
 
         # Grade Prediction section
 elif selected == "Grade Prediction":
@@ -312,6 +312,10 @@ elif selected == "Grade Prediction":
 
     st.write(
         "Predict your future grades and percentages based on target CGPA/SGPA:")
+
+    # Explanation for Grade Prediction section
+    st.write("In the 'Grade Prediction' section, you can predict your future grades and percentages based on a target CGPA or SGPA.\n\n"
+             "Enter your desired target, and the app will provide you with the predicted grade and percentage, giving you insights into your academic goals.")
 
     target_cgpa_sgpa = st.number_input(
         "Enter Target CGPA/SGPA:", min_value=0.0, max_value=10.0, step=0.01)
@@ -322,7 +326,7 @@ elif selected == "Grade Prediction":
 
         if predicted_grade != "Invalid":
             st.write(
-                f"Predicted Grade: {predicted_grade}, Predicted Percentage: {predicted_percentage:.2f}%")
+                f"**Predicted Grade: {predicted_grade}, Predicted Percentage: {predicted_percentage:.2f}%**")
             st.balloons()
         else:
             st.write("Invalid input or prediction not available.")
@@ -331,6 +335,9 @@ elif selected == "Grade Prediction":
 elif selected == "Semester-wise CGPA and Percentage Calculation":
     st.markdown(
         "<h2 class='section-header'>Calculate Percentages and CGPA Semester-wise</h2>", unsafe_allow_html=True)
+    # Explanation for Semester-wise CGPA and Percentage Calculation section
+    st.write("The 'Semester-wise CGPA and Percentage Calculation' section allows you to calculate cumulative percentages and CGPA across multiple semesters. \n\n"
+             "Enter your SGPA and credits for each semester, and the app will compute the cumulative percentage and CGPA, helping you track your academic progress over time.")
 
     num_semesters = st.slider("Number of Semesters:",
                               min_value=1, max_value=8, step=1)
@@ -354,8 +361,8 @@ elif selected == "Semester-wise CGPA and Percentage Calculation":
             semester_cgpa_sgpa_list)
 
         if cumulative_percentages is not None and cumulative_cgpa is not None:
-            st.write(f"Percentage: {cumulative_percentages:.2f}%")
-            st.write(f"CGPA: {cumulative_cgpa:.2f}")
+            st.write(f"**Percentage: {cumulative_percentages:.2f}%**")
+            st.write(f"**CGPA: {cumulative_cgpa:.2f}**")
             st.balloons()
         else:
             st.write("Invalid input or calculation not available.")
@@ -368,7 +375,7 @@ elif selected == "About":
         "SPPU CGPAPercentify is a simple web app designed for SPPU students to quickly "
         "convert their CGPA to percentage. It provides an easy way to calculate percentage "
         "equivalents based on the SPPU CGPA grading system.\n\n"
-        "Web App Developer: Rohit More\n\n"
+        "Web App Developer: **Rohit More**\n\n"
         "Connect with me on LinkedIn: [Rohit More](https://www.linkedin.com/in/rohit-more1012/)\n\n"
         "View the source code on GitHub: [SPPU CGPAPercentify](https://github.com/rohitmore1012/SPPU_CGPAPercentify)\n\n"
         "Join our Telegram Group for updates and discussions: [Telegram Group](https://t.me/SPPU_COMPUTER_ER)\n\n"
@@ -382,7 +389,7 @@ elif selected == "About":
         "For more information on the SPPU CGPA to percentage conversion, you can refer to the "
         "[official SPPU document](https://campus.unipune.ac.in/CCEP/CBCS/CBCS_Passing_Standards.aspx)."
     )
-    st.snow()
+    # st.snow()
 
 # Add page footer
 st.markdown("---")
